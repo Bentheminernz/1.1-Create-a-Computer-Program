@@ -106,7 +106,6 @@ normal_quiz_questions = [
 ]
 
 hard_quiz_questions = [
-
     {
         "question": "What is the correct code to print the type of a variable?",
         "answers": ["print(typeof(x))", "print(type(x))", "typePrint(x)", "print.type(x)"],
@@ -133,7 +132,9 @@ hard_quiz_questions = [
         "correct": "Set"
     },
     {
-        "question": ""
+        "question": "What does zip() function do?",
+        "answers": ["Converts a list into a tuple", "Combines multiple iterables into an iterator of tuples", "Sorts a list", "Makes a .zip file from selected files"],
+        "correct": "Combines multiple iterables into an iterator of tuples"
     }
 ]
 
