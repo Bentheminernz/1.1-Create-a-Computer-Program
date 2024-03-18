@@ -6,6 +6,7 @@ from quiz_dictionaries import *
 global player_name     # Makes player_name a global variable to be used anywhere
 global score
 global clear_chat
+global high_score
 clear_chat = "Off"
 score = 0
 
@@ -22,11 +23,31 @@ def clear(force=False):    # Defines clear function for clearing terminal
     elif platform.system() == "Windows":    # If operating system is equal to windows run windows specific clear command
         os.system('cls')
 
+def load_high_score():
+    file_path = os.path.join(os.path.dirname(__file__), 'high_score.txt')
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as file:
+            high_score_str = file.read().strip()
+            if high_score_str:
+                high_score = int(high_score_str)
+            else:
+                high_score = 0
+    else:
+        high_score = 0
+    return high_score
+
+    
+def save_high_score(score):
+    file_path = os.path.join(os.path.dirname(__file__), 'high_score.txt')
+    with open (file_path, 'w') as file:
+        file.write(str(score))
+
 def start_menu():  # Define start_menu function
     global questions
+    high_score = load_high_score()
     clear(force=True)
     options = ["Start", "Settings", "Exit"]
-    option, index = pick.pick(options, f"Hello {player_name} and Welcome to the Python Mastery Challenge!", indicator = '->', default_index= 0)
+    option, index = pick.pick(options, f"Hello {player_name} and Welcome to the Python Mastery Challenge!\nThe current high score is {high_score}", indicator = '->', default_index= 0)
     if option == "Start":
         difficulties = ["Easy", "Normal", "Hard"]
         pick_difficulty, index = pick.pick(difficulties, "Pick a difficulty!", indicator='->')
@@ -69,8 +90,8 @@ def format_questions(question_info):      # Formats questions and gets users ans
 
 
 def quiz(questions):
+    high_score = load_high_score()
     while True:
-        global score
         score = 0
         total_questions = len(questions)
         random.shuffle(questions)
@@ -89,6 +110,9 @@ def quiz(questions):
             
             question_progress += 1
             if question_progress == total_questions:
+                if score > high_score:
+                    print("Congrats! You just got a new high score!!")
+                    save_high_score(score)
                 options = ["Start Menu", "Exit"]
                 option, index = pick.pick(options, f"You've finished the quiz! Your score is: {score}/{total_questions} \nReturn to start menu or exit?", indicator='->')
                 if option == "Start Menu":

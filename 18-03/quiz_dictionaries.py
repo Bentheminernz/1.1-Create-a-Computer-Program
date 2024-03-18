@@ -43,24 +43,26 @@ easy_quiz_questions = [
     },
     {
         "question": "How do I make a string all uppper case?",
-        "answers": ["upper()", "upper.string()", "upperCase()", "UPPER()"],
-        "correct": "upper()"
+        "answers": ["var.upper()", "var.upper.string()", "var.upperCase()", "var.UPPER()"],
+        "correct": "var.upper()"
     },
     {
         "question": "Which symbol is used to multiply numbers?",
-        "answers": ["%", "x", "@", "*"]
+        "answers": ["%", "x", "@", "*"],
+        "correct": "*"
     }
 ]
 
+
 normal_quiz_questions = [
     {
-        "question": "Which one of these is NOT an illegal variable name?",
+        "question": "Which one of these is an illegal variable name?",
         "answers": ["myvariable", "_myvariable", "MyVArIA_BlE", "my-variable"],
         "correct": "my-variable"
     },
     {
         "question": "How do you make a variable with the value of floating number 5.6?",
-        "answers": ["x = float(5.6)", " x.float = 5.6", "x = 5.6", "x = 5.6(float)"],
+        "answers": ["x = float(5.6)", "x.float = 5.6", "x = 5.6", "x = 5.6(float)"],
         "correct": "x = float(5.6)"
     },
     {
@@ -69,14 +71,14 @@ normal_quiz_questions = [
         "correct": "append()"
     },
     {
-        "question": "Is 'Hello' the same as \"Hello\"",
-        "answers": ["Yes", "No", "Maybe", "Possibly?"],
-        "correct": "Yes"
+        "question": "Which one of these is NOT an illegal variable name?",
+        "answers": ["_my_var", "2ndMyVar", "my-var", "my var"],
+        "correct": "_my_var"
     },
     {
         "question": "How do you remove any whitespace from beginning and end of a string?",
-        "answers": ["len()", "trim()", "str.trim()", "strip()"],
-        "correct": "strip()"
+        "answers": ["str.len()", "str.trim()", "str.whitespaceremove()", "str.strip()"],
+        "correct": "str.strip()"
     },
     {
         "question": "How do you start an if statement?",
@@ -85,13 +87,13 @@ normal_quiz_questions = [
     },
     {
         "question": "How do you start a while loop?",
-        "answers": ["while x > y:", "while (x > y):", "x > y while:", "(x > y) while"],
-        "correct": "while x > y"
+        "answers": ["while x > y:", "while (x > y):", "x > y while:", "(x > y) while:"],
+        "correct": "while x > y:"
     },
     {
         "question": "How do you start a for loop?",
         "answers": ["for x > y:", "for x in y:", "x > y for:", "for each x in y:"],
-        "correct": "for x in y"
+        "correct": "for x in y:"
     },
     {
         "question": "What does pass do?",
@@ -113,17 +115,17 @@ hard_quiz_questions = [
     },
     {
         "question": "Which of these define a list?",
-        "answers": ["\"{'green', 'blue', 'yellow', 'red}\"","\"['green', 'blue', 'yellow', 'red']\"", "\"('green', 'blue', 'yellow', 'red)\"", "\"{'green': 'blue', 'yellow': 'red'}\""],
-        "correct": "\"['green', 'blue', 'yellow', 'red]\""
+        "answers": ["{'green', 'blue', 'yellow', 'red}","['green', 'blue', 'yellow', 'red']", "('green', 'blue', 'yellow', 'red)", "{'green': 'blue', 'yellow': 'red'}"],
+        "correct": "['green', 'blue', 'yellow', 'red']"
     },
     {
         "question": "Which of these define a dictionary?",
-        "answers": ["\"{'green', 'blue', 'yellow', 'red}\"","\"['green', 'blue', 'yellow', 'red']\"", "\"('green', 'blue', 'yellow', 'red)\"", "\"{'green': 'blue', 'yellow': 'red'}\""],
-        "correct": "\"{'green': 'blue', 'yellow': 'red'}\""
+        "answers": ["{'green', 'blue', 'yellow', 'red'}", "['green', 'blue', 'yellow', 'red']", "('green', 'blue', 'yellow', 'red)", "{'green': 'blue', 'yellow': 'red'}"],
+        "correct": "{'green': 'blue', 'yellow': 'red'}"
     },
     {
         "question": "Which collection is ordered, changeable and allows duplicate members?",
-        "answers": ["List", "Dictionary", "List", "Tuple"],
+        "answers": ["List", "Dictionary", "Set", "Tuple"],
         "correct": "List"
     },
     {
@@ -135,17 +137,40 @@ hard_quiz_questions = [
         "question": "What does zip() function do?",
         "answers": ["Converts a list into a tuple", "Combines multiple iterables into an iterator of tuples", "Sorts a list", "Makes a .zip file from selected files"],
         "correct": "Combines multiple iterables into an iterator of tuples"
+    },
+    {
+        "question": "What method is used to remove an item from a list by its value?",
+        "answers": ["remove(item)", "pop(index)", "delete(item)", "discard(item)"],
+        "correct": "remove(item)"
+    },
+    {
+        "question": "What does the sorted() function do?",
+        "answers": ["Removes duplicates", "Sorts a list in ascending order", "Reverses the list", "Converts list to dictionary"],
+        "correct": "Sorts a list in ascending order"
+    },
+    {
+        "question": "What does random.choice() from the random library do?",
+        "answers": ["Generates a random number", "Chooses a random character from a string", "Selects a random key from a dictionary", "Picks a random element from a list"],
+        "correct": "Picks a random element from a list"
+    },
+    {
+        "question": "How do you access the value associated with a specific key in a dictionary?",
+        "answers": ["dict[key]", "dict.value(key)", "dict[key].value", "[dict]key.value"],
+        "correct": "dict[key]"
     }
 ]
 
 correct_congrats = ["Ka Pai! You got that one correct!", 
                     "Great Job! You got that one right!", 
                     "Amazing! You got it right!", 
-                    "Keep going! You're doing amazing!"]
+                    "Keep going! You're doing amazing!",
+                    "Awesome Job! Keep going you're so close!"]
 
 def generate_incorrect_message(correct_answer):
     possible_answers = [
         f"So close! You got that one wrong, the answer was {correct_answer}",
-        f"Better luck next time! You were wrong :( , the answer was {correct_answer}"
+        f"Better luck next time! You were wrong :( , the answer was {correct_answer}",
+        f"You nearly got it! The correct answer was, {correct_answer}, better luck next time!",
+        f"Keep trying! The corrrect answer was, {correct_answer}, better luck next time!"
     ]
     return random.choice(possible_answers)
