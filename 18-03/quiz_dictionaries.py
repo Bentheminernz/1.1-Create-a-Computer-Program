@@ -27,12 +27,12 @@ easy_quiz_questions = [
         "correct": "def my_function():"
     },
     {
-        "question": "How do I load the Python library time?",
+        "question": "How do you load the Python library time?",
         "answers": ["load time", "import time", "open time", "include time"],
         "correct": "import time"
     },
     {
-        "question": "How do I end a loop in Python?",
+        "question": "How do you end a loop in Python?",
         "answers": ["break", "end", "stop", "exit"],
         "correct": "break"
     },
@@ -42,7 +42,7 @@ easy_quiz_questions = [
         "correct": ".py"
     },
     {
-        "question": "How do I make a string all uppper case?",
+        "question": "How do you make a string all upper case?",
         "answers": ["var.upper()", "var.upper.string()", "var.upperCase()", "var.UPPER()"],
         "correct": "var.upper()"
     },
@@ -66,7 +66,7 @@ normal_quiz_questions = [
         "correct": "x = float(5.6)"
     },
     {
-        "question": "How do I add an item to the end of a list?",
+        "question": "How do you add an item to the end of a list?",
         "answers": ["add()", "insert()", "append()", "insert.end()"],
         "correct": "append()"
     },

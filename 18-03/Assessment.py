@@ -1,6 +1,6 @@
 import platform # import platform library
 import os   # import OS library
-import pick # import pick library, used for making selection menus
+import pick_package as pick # import pick library, used for making selection menus
 import random
 from quiz_dictionaries import *     # imports everything from quiz_dictionaries.py so quiz questions, congrats message, incorrect questions & generate_incorrect_message() loads
 global player_name     # Makes all these variables global so they have the same value between functions
