@@ -1,5 +1,6 @@
 import platform # import platform library
 import os   # import OS library
+import sys
 try:
     import pick # import pick library, used for making selection menus
 except ModuleNotFoundError:
@@ -159,6 +160,9 @@ def quiz(questions):
 
 # Start of script
 clear(force=True)     # Clears terminal of random not needed
+if sys.version_info[:3] > (3,12):
+    print("You are using Python 3.12, currently this version is not supported because the UI library does not support 3.12.\nIf you go to https://www.python.org/ftp/python/3.11.6/python-3.11.6-amd64.exe you can download and install Python 3.11.6.\nThis version is supported recommended when running this program")
+    exit()
 player_name = input("Hello Quizzer! What is your name? ").title()  # Asks player for name and assigns it to variable "playername"
 while not player_name:  # If nothing is inputed to player_name reask for player_name
     clear(force=True)
