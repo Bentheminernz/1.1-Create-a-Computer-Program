@@ -1,6 +1,16 @@
 import platform # import platform library
 import os   # import OS library
-import pick_package as pick # import pick library, used for making selection menus
+try:
+    import pick # import pick library, used for making selection menus
+except ModuleNotFoundError:
+    if platform.system() == "Linux" or platform.system() == "Darwin":
+        os.system('clear')
+        print("Hello! The Python module 'pick' is not installed because of\nthis my code will not run to fix this, open 'Terminal' and type\nin 'pip install pick' enter 'y' if it asks to install, once done rerun this code!")
+        exit()
+    elif platform.system() == "windows":
+        os.system('cls')
+        print("Hello! The Python module 'pick' is not installed because of this my code will not run\nto fix this, type CMD into the search bar and open the app, then type in 'py -m pip install pick'\nenter 'y' if it asks to install, once done rerun this code!")
+        exit()
 import random
 from quiz_dictionaries import *     # imports everything from quiz_dictionaries.py so quiz questions, congrats message, incorrect questions & generate_incorrect_message() loads
 global player_name     # Makes all these variables global so they have the same value between functions
