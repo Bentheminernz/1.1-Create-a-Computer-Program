@@ -1,17 +1,26 @@
 import platform # import platform library
 import os   # import OS library
 import sys
+import webbrowser
 try:
-    import pick # import pick library, used for making selection menus
-except ModuleNotFoundError:
-    if platform.system() == "Linux" or platform.system() == "Darwin":
+    import pick # trys to import pick library, used for making selection menus
+except ModuleNotFoundError:     # if not found run this code
+    if platform.system() == "Darwin":   # Gives instructions on how to install pick library on macOS or Linux
         os.system('clear')
         print("Hello! The Python module 'pick' is not installed because of\nthis my code will not run to fix this, open 'Terminal' and type\nin 'pip install pick' enter 'y' if it asks to install, once done rerun this code!")
-        exit()
-    elif platform.system() == "windows":
+        choice = input("Would you like to watch a video tutorial on how to do it? 'Yes' or 'No' ").title()
+        if choice == "Yes":
+            webbrowser.open("https://www.google.com/search?q=test&rlz=1C1GCEB_enNZ1096NZ1096&oq=test&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABiPAjIHCAIQABiPAjIGCAMQRRg9MgYIBBBFGD3SAQc2NzlqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8&safe=active&ssui=on")
+        else:
+            exit()
+    elif platform.system() == "Windows":    # Gives instructions on how to install pick library on windows
         os.system('cls')
         print("Hello! The Python module 'pick' is not installed because of this my code will not run\nto fix this, type CMD into the search bar and open the app, then type in 'py -m pip install pick'\nenter 'y' if it asks to install, once done rerun this code!")
-        exit()
+        choice = input("Would you like to watch a video tutorial on how to do it? 'Yes' or 'No' ").title()
+        if choice == "Yes":
+            webbrowser.open("https://www.google.com/search?q=test&rlz=1C1GCEB_enNZ1096NZ1096&oq=test&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABiPAjIHCAIQABiPAjIGCAMQRRg9MgYIBBBFGD3SAQc2NzlqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8&safe=active&ssui=on")
+        else:
+            exit()
 import random
 from quiz_dictionaries import *     # imports everything from quiz_dictionaries.py so quiz questions, congrats message, incorrect questions & generate_incorrect_message() loads
 global player_name     # Makes all these variables global so they have the same value between functions
@@ -160,9 +169,21 @@ def quiz(questions):
 
 # Start of script
 clear(force=True)     # Clears terminal of random not needed
-if sys.version_info[:3] > (3,12):
-    print("You are using Python 3.12, currently this version is not supported because the UI library does not support 3.12.\nIf you go to https://www.python.org/ftp/python/3.11.6/python-3.11.6-amd64.exe you can download and install Python 3.11.6.\nThis version is supported recommended when running this program")
-    exit()
+if sys.version_info[:3] > (3,12):   # Checks to see if python version is greater than 3.12
+    if platform.system() == "Windows":  # Gives instructions on how to install python 3.11.6 for windows
+        print("You are using Python 3.12, currently this version is not supported because the UI library does not support 3.12.\nIf you go to https://www.python.org/ftp/python/3.11.6/python-3.11.6-amd64.exe you can download and install Python 3.11.6.\nThis version is supported recommended when running this program")
+        choice = input("Would you like to watch a video tutorial on how to install it? 'Yes' or 'No' ").title()
+        if choice == "Yes":
+            webbrowser.open("https://www.google.com/search?q=test&rlz=1C1GCEB_enNZ1096NZ1096&oq=test&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABiPAjIHCAIQABiPAjIGCAMQRRg9MgYIBBBFGD3SAQc2NzlqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8&safe=active&ssui=on")
+        else:
+            exit()
+    elif platform.system() == "Darwin":     # Gives instructions on how to install python 3.11.6 for macOS
+        print("You are using Python 3.12, currently this version is not supported because the UI library does not support 3.12.\nIf you go to https://www.python.org/ftp/python/3.11.6/python-3.11.6-macos11.pkg you can download and install Python 3.11.6.\nThis version is supported recommended when running this program")
+        choice = input("Would you like to watch a video tutorial on how to install it? 'Yes' or 'No' ").title()
+        if choice == "Yes":
+            webbrowser.open("https://www.google.com/search?q=test&rlz=1C1GCEB_enNZ1096NZ1096&oq=test&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABiPAjIHCAIQABiPAjIGCAMQRRg9MgYIBBBFGD3SAQc2NzlqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8&safe=active&ssui=on")
+        else:
+            exit()
 player_name = input("Hello Quizzer! What is your name? ").title()  # Asks player for name and assigns it to variable "playername"
 while not player_name:  # If nothing is inputed to player_name reask for player_name
     clear(force=True)
