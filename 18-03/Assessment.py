@@ -78,7 +78,7 @@ def start_menu():  # Define start_menu function
     options = ["Start", "Settings", "Exit"]     # Creates list of options
     option, index = pick.pick(options, f"Hello {player_name} and Welcome to the Python Mastery Challenge!\nThe current high score is {high_score}", indicator = '->', default_index= 0)     # Creates the pick menu, sets options to the list options, makes the title and sets what the indicator looks like
     if option == "Start":
-        difficulties = ["Easy", "Normal", "Hard"]   # Creates list of difficulties
+        difficulties = ["Easy", "Normal", "Hard", "Back"]   # Creates list of difficulties
         pick_difficulty, index = pick.pick(difficulties, "Pick a difficulty!", indicator='->')  # Creates pick menu to choose the difficulty you want to be quizzed on
         if pick_difficulty == "Easy":
             quiz(easy_quiz_questions)  # This runs the quiz function with the easy questions
@@ -86,6 +86,8 @@ def start_menu():  # Define start_menu function
             quiz(normal_quiz_questions) # This runs the quiz function with the normal questions
         elif pick_difficulty == "Hard":
             quiz(hard_quiz_questions)   # This runs the quiz function with the hard questions
+        elif pick_difficulty == "Back":
+            start_menu()
     elif option == "Settings":
         settings()  # Opens settings menu
     elif option == "Exit":

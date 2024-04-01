@@ -12,7 +12,7 @@ easy_quiz_questions = [
         "correct": "x = 1"
     },
     {
-        "question": "How do you print the variable 'x'?",
+        "question": "How do you print the variable x?",
         "answers": ["prnt(x)", "print('x')", "print(x)", "print[x]"],
         "correct": "print(x)"
     },
@@ -32,8 +32,8 @@ easy_quiz_questions = [
         "correct": "import time"
     },
     {
-        "question": "How do you end a loop in Python?",
-        "answers": ["break", "end", "stop", "exit"],
+        "question": "How do you end a loop?",
+        "answers": ["break", "end", "stop", "loop.end()"],
         "correct": "break"
     },
     {
@@ -76,7 +76,7 @@ normal_quiz_questions = [
         "correct": "_my_var"
     },
     {
-        "question": "How do you remove any whitespace from beginning and end of a string?",
+        "question": "How do you remove any whitespace from the beginning and end of a string?",
         "answers": ["str.len()", "str.trim()", "str.whitespaceremove()", "str.strip()"],
         "correct": "str.strip()"
     },
@@ -115,12 +115,12 @@ hard_quiz_questions = [
     },
     {
         "question": "Which of these define a list?",
-        "answers": ["{'green', 'blue', 'yellow', 'red}","['green', 'blue', 'yellow', 'red']", "('green', 'blue', 'yellow', 'red)", "{'green': 'blue', 'yellow': 'red'}"],
+        "answers": ["{'green', 'blue', 'yellow', 'red'}","['green', 'blue', 'yellow', 'red']", "('green', 'blue', 'yellow', 'red')", "{'green': 'blue', 'yellow': 'red'}"],
         "correct": "['green', 'blue', 'yellow', 'red']"
     },
     {
         "question": "Which of these define a dictionary?",
-        "answers": ["{'green', 'blue', 'yellow', 'red'}", "['green', 'blue', 'yellow', 'red']", "('green', 'blue', 'yellow', 'red)", "{'green': 'blue', 'yellow': 'red'}"],
+        "answers": ["{'green', 'blue', 'yellow', 'red'}", "['green', 'blue', 'yellow', 'red']", "('green', 'blue', 'yellow', 'red')", "{'green': 'blue', 'yellow': 'red'}"],
         "correct": "{'green': 'blue', 'yellow': 'red'}"
     },
     {
@@ -145,7 +145,7 @@ hard_quiz_questions = [
     },
     {
         "question": "What does the sorted() function do?",
-        "answers": ["Removes duplicates", "Sorts a list in ascending order", "Reverses the list", "Converts list to dictionary"],
+        "answers": ["Removes duplicates", "Sorts a list in ascending order", "Reverses the list", "Converts list to a dictionary"],
         "correct": "Sorts a list in ascending order"
     },
     {
